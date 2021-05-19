@@ -10,8 +10,8 @@
         </div>
         <div class="container">
           <div class="row">
-            <div class="col-4" v-if="item.image">
-              <img :src="item.image" class="rounded-lg w-100" alt="..." />
+            <div v-if="item.image && typeof item.image !== 'string'"  class="col-4">
+              <img :src="item.image.fitUrl" :alt="item.title" class="rounded-lg w-100" />
             </div>
             <p class="card-text article text-muted" :class="item.image ? 'col-8' : ''">
               {{ item.excerpt }}
